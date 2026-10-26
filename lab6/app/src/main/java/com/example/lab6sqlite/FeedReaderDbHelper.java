@@ -17,6 +17,11 @@ public class FeedReaderDbHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    // Constructeur pour les tests : name = null -> base de données en mémoire
+    FeedReaderDbHelper(Context context, String name) {
+        super(context, name, null, DATABASE_VERSION);
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(FeedReaderContract.SQL_CREATE_ENTRIES);
